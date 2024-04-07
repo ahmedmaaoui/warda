@@ -19,12 +19,12 @@ if(isset($_POST['update_product'])){
    $price_reduction = mysqli_real_escape_string($conn, $_POST['flower_pice_redux']);
 
 
-   mysqli_query($conn, "UPDATE `flowers` SET flower_name = '$name', flower_details = '$details', flower_price = '$price',   flower_pice_redux='$price_reduction'  WHERE id = '$update_p_id'") or die('query failed');
+   mysqli_query($conn, "UPDATE `flowers` SET flower_name = '$name', flower_detail = '$details', flower_price = '$price',   flower_pice_redux='$price_reduction'  WHERE id = '$update_p_id'") or die('query failed');
 
    $image = $_FILES['image']['name'];
    $image_size = $_FILES['image']['size'];
    $image_tmp_name = $_FILES['image']['tmp_name'];
-   $image_folter = 'img/'.$image;
+   $image_folter = 'uploads/'.$image;
    $old_image = $_POST['update_p_image'];
    
    if(!empty($image)){
@@ -33,12 +33,14 @@ if(isset($_POST['update_product'])){
       }else{
          mysqli_query($conn, "UPDATE `flowers` SET image = '$image' WHERE id = '$update_p_id'") or die('query failed');
          move_uploaded_file($image_tmp_name, $image_folter);
-         unlink('img/'.$old_image);
+         unlink('uploads/'.$old_image);
          $message[] = 'image updated successfully!';
+         
       }
    }
 
    $message[] = 'product updated successfully!';
+   header('location:admin_products.php');
 
 }
 
@@ -71,7 +73,7 @@ if(isset($_POST['update_product'])){
  
    <h1 class="title">update</h1>
 
-   <div class="box-container">
+  
 
 <?php
 
@@ -81,17 +83,22 @@ if(isset($_POST['update_product'])){
       while($fetch_products = mysqli_fetch_assoc($select_products)){
 ?>
 
-<form action="" method="post" enctype="multipart/form-data">
-   <img src="img/<?php echo $fetch_products['image']; ?>" class="image"  alt="">
+
+<form  action="" method="post" enctype="multipart/form-data">
+   <img src="uploads/<?php echo $fetch_products['image']; ?>" class="box-flower "  alt="">
+   <div class="formfilform">
    <input type="hidden" value="<?php echo $fetch_products['id']; ?>" name="update_p_id">
    <input type="hidden" value="<?php echo $fetch_products['image']; ?>" name="update_p_image">
-   <input type="text" class="box" value="<?php echo $fetch_products['flower_name']; ?>" required placeholder="update product name" name="name">
-   <input type="number" min="0" class="box" value="<?php echo $fetch_products['flower_price']; ?>" required placeholder="update product price" name="price">
-   <input type="number" min="0" class="box" value="<?php echo $fetch_products['flower_pice_redux']; ?>" required placeholder="update product reduction" name="price_reduction">
-   <textarea name="details" class="box" required placeholder="update product details" cols="30" rows="10"><?php echo $fetch_products['flower_detail']; ?></textarea>
-   <input type="file" accept="image/jpg, image/jpeg, image/png" class="box" name="image">
+   <input type="text" class="box-flower " value="<?php echo $fetch_products['flower_name']; ?>" required placeholder="update product name" name="flower_name">
+   <input type="number" min="0" class="box-flower " value="<?php echo $fetch_products['flower_price']; ?>" required placeholder="update product price" name="flower_price">
+   <input type="number" min="0" class="box-flower " value="<?php echo $fetch_products['flower_pice_redux']; ?>" required placeholder="update product reduction" name="flower_pice_redux">
+   <textarea name="flower_detail" class="box-flower " required placeholder="update product details"  cols="30" rows="10"><?php echo $fetch_products['flower_detail']; ?></textarea>
+   <input type="file" accept="image/jpg, image/jpeg, image/png" class="box-flower " name="image">
+
    <input type="submit" value="update product" name="update_product" class="btn">
-   <a href="admin_products.php" class="option-btn">go back</a>
+  <a href="admin_products.php" class="btn">go back</a>    
+</div>
+ 
 </form>
 
 <?php
@@ -100,6 +107,7 @@ if(isset($_POST['update_product'])){
       echo '<p class="empty">no update product select</p>';
    }
 ?>
+
 
 </section>
 

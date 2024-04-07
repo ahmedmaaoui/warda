@@ -38,6 +38,21 @@ if(isset($_POST['add_product'])){
 
 }
 
+
+if(isset($_GET['delete'])){
+
+   $delete_id = $_GET['delete'];
+   $select_delete_image = mysqli_query($conn, "SELECT image FROM `flowers` WHERE id = '$delete_id'") or die('query failed');
+   $fetch_delete_image = mysqli_fetch_assoc($select_delete_image);
+   unlink('uploads/'.$fetch_delete_image['image']);
+   mysqli_query($conn, "DELETE FROM `flowers` WHERE id = '$delete_id'") or die('query failed');
+   // mysqli_query($conn, "DELETE FROM `wishlist` WHERE pid = '$delete_id'") or die('query failed');
+   // mysqli_query($conn, "DELETE FROM `cart` WHERE pid = '$delete_id'") or die('query failed');
+   header('location:admin_products.php');
+
+}
+
+?>
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -74,7 +89,7 @@ if(isset($_POST['add_product'])){
 </head>
 <body>
          <?php @include 'admin_header.php'; ?>
-      <?php echo $_SESSION['admin_name']; ?>
+      
 
       <section class="add-products">
 
@@ -84,7 +99,7 @@ if(isset($_POST['add_product'])){
       <input type="number" min="0" class="box-product" required placeholder="enter product price" name="price">
       <input type="number" min="0" class="box-product" required placeholder="enter product reduction %" name="price_reduction">
       <textarea name="details" class="box-product" required placeholder="enter product details" cols="30" rows="10"></textarea>
-        <input type="file" accept="image/jpg, image/jpeg, image/png" required class="box" name="image">
+        <input type="file" class="box-product" accept="image/jpg, image/jpeg, image/png" required class="box" name="image">
       <input type="submit" value="add product" name="add_product" class="btn">
    </form>
 

@@ -1,5 +1,5 @@
 <?php
-@include 'config.php';
+@include '../auth/config.php';
 
 session_start();
 $user_id = $_SESSION['user_id'];
@@ -41,6 +41,45 @@ if(!isset($user_id)){
    <div class="content">
 
   
+   </div>
+
+</section>
+
+<section class="products">
+
+   <h1 class="title">latest products</h1>
+
+   <div class="box-container">
+
+      <?php
+         $select_products = mysqli_query($conn, "SELECT * FROM `flowers` LIMIT 6") or die('query failed');
+         if(mysqli_num_rows($select_products) > 0){
+            while($fetch_products = mysqli_fetch_assoc($select_products)){
+      ?>
+      <form action="" method="POST"  class="box">
+         <a href="view_flower.php?pid=<?php echo $fetch_products['id']; ?>" class="fa fa-eye"></a>
+         <div class="price"><?php echo $fetch_products['flower_price']; ?> dt /- dt<?php echo $fetch_products['flower_pice_redux']; ?></div>
+         <img src="../admin/uploads/<?php echo $fetch_products['image']; ?>" alt="" class="image">
+         <div class="name"><?php echo $fetch_products['flower_name']; ?></div>
+         <input type="number" name="product_quantity" value="1" min="0" class="qty">
+         <input type="hidden" name="product_id" value="<?php echo $fetch_products['id']; ?>">
+         <input type="hidden" name="product_name" value="<?php echo $fetch_products['flower_name']; ?>">
+         <input type="hidden" name="product_price" value="<?php echo $fetch_products['flower_price']; ?>">
+         <input type="hidden" name="product_image" value="<?php echo $fetch_products['image']; ?>">
+         <input type="submit" value="add to wishlist" name="add_to_wishlist" class="btnhome">
+         <input type="submit" value="add to cart" name="add_to_cart" class="btnhome">
+      </form>
+      <?php
+         }
+      }else{
+         echo '<p class="empty">no products added yet!</p>';
+      }
+      ?>
+
+   </div>
+
+   <div class="more-btn">
+      <a href="shop.php" class="option-btn">load more</a>
    </div>
 
 </section>

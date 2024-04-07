@@ -34,11 +34,14 @@ if(!isset($user_id)){
  
    <div class="content">
    
-       <img class="logo-warda" src="../../img/Wardalogo.svg" alt="">
+       <img class="logo-warda" src="../img/Wardalogo.svg" alt="">
       <h1 >The Gift of Flowers </h1>
       <a href="user_shop.php" class="btn" >discover more</a>
    </div>
-   <div class="content"></div>
+   <div class="content">
+
+  
+   </div>
 
 </section>
 
@@ -47,6 +50,7 @@ if(!isset($user_id)){
     <div class="container">
         <h1>  Welcome <?php echo $_SESSION['user_name']; ?> </h1>
         <a href="logout.php" class="btn btn-warning">Logout</a>
+         <?php @include '../show_product.php'; ?>
     </div>
 
 <?php @include 'userFooter.php'; ?>

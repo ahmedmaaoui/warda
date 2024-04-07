@@ -96,7 +96,7 @@ if (isset($_POST["submit"])) {
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="">
+   <link rel="stylesheet" href="style.css">
 
 </head>
 <body>
@@ -108,10 +108,6 @@ if (isset($_POST["submit"])) {
       <input type="email" name="email" class="box" placeholder="enter your email" required>
       <input type="password" name="password" class="box" placeholder="enter your password" required>
       <input type="password" name="repeat_password" class="box" placeholder="confirm your password" required>
-         <select  class="box" name="user_type">
-         <option  value="user">user</option>
-         <option  value="admin">admin</option>
-      </select>
       <input type="submit" class="btn" name="submit" value="register now">
       <p>already have an account? <a href="login.php">login now</a></p>
    </form>

@@ -5,6 +5,7 @@
   --pinktwo: #e95a87;
   --red: #c0392b;
   --beige: #eae1dc;
+
   --beige-gras: #e2d9d0;
   --violet: #491a6d;
   --orange: #f39c12;
@@ -89,28 +90,225 @@
   color: var(--pink);
 }
 
-.header-admin .flex-admin .icons-admin > * {
-  font-size: 1.5rem;
-  margin-left: 1rem;
-  color: var(--black);
+.header-admin .icons-admin i:hover {
   cursor: pointer;
+  color: var(--pinktwo);
 }
-
-.header-admin .flex-admin .icons-admin > *:hover {
-  color: var(--pink);
-}
-
-.header-admin .flex-admin .icons-admin span {
+.header-admin .icons-admin i {
+  margin-left: 1.2rem;
   font-size: 1.5rem;
-}
-.header-admin .flex-admin .icons-admin a {
-  text-decoration: none;
-}
-
-#menu-btn-admin {
-  display: none;
+  cursor: pointer;
+  color: var(--violet);
 }
 
 .header-admin .flex-admin .logo-warda {
   width: 200px;
+}
+
+.header-admin .flex-admin .account-box {
+  position: absolute;
+  top: 120%;
+  right: 1rem;
+  width: 20rem;
+  border-radius: 0.5rem;
+  background-color: #ececec;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  display: none;
+  animation: fadeIn 0.2s linear;
+}
+
+.header-admin .flex-admin .account-box.active {
+  display: inline-block;
+}
+
+.header-admin .flex-admin .account-box p {
+  padding-bottom: 1rem;
+  font-size: 1.2rem;
+  color: var(--black);
+  line-height: 1.5;
+}
+
+.header-admin .flex-admin .account-box p span {
+  color: var(--pink);
+}
+
+.header-admin .flex-admin .account-box button {
+  font-size: 1.2rem;
+  border-radius: 4px;
+  padding: 5px 10px;
+  /* margin-top: 2rem; */
+  background-color: var(--pink);
+  color: #ffffff;
+}
+
+.header-admin .flex-admin .account-box div a {
+  color: var(--orange);
+}
+
+.header-admin .flex-admin .account-box div a:hover {
+  text-decoration: underline;
+}
+
+.header-admin .flex-admin .icons div {
+  font-size: 2.5rem;
+  margin-left: 1.7rem;
+  cursor: pointer;
+  color: var(--black);
+}
+
+.header-admin .flex-admin .icons div:hover {
+  color: var(--pink);
+}
+
+.header-admin .flex-admin .navbar a {
+  margin: 0 1rem;
+  font-size: 2rem;
+  color: var(--light-color);
+}
+
+.header-admin .flex-admin .navbar a:hover {
+  text-decoration: underline;
+  color: var(--pink);
+}
+
+.header-admin .flex-admin .logo {
+  font-size: 2.5rem;
+  color: var(--black);
+}
+
+.header-admin .flex-admin .logo span {
+  color: var(--pink);
+}
+
+#menu-btn {
+  display: none;
+}
+
+.title {
+  text-align: center;
+  text-transform: uppercase;
+  margin: 2rem 0;
+  color: #545bba;
+}
+.box-container {
+  padding: 2% 8%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  justify-content: center;
+  align-items: center;
+}
+.box-container .box {
+  box-shadow: var(--box-shadow);
+  border-radius: 15px;
+  padding: 1rem;
+  background: aliceblue;
+  border: 2px solid goldenrod;
+  margin: 1rem;
+  text-align: center;
+  border-radius: 5 px;
+}
+.box-container .box h3 {
+  font-size: 3rem;
+  color: #545bba;
+}
+.box-container.box p {
+  font-size: 18rem;
+  text-transform: capitalize;
+  margin: 1rem;
+}
+.box:hover {
+  background: #c7b3f5;
+  border: 2px solid goldenrod;
+  color: #545bba;
+}
+.add-products {
+  width: 50vw;
+  margin: 2rem auto;
+  background: #fff;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  border: solid #c7b3f5;
+}
+.add-products .box-product {
+  width: 100%;
+  margin: 1rem 0;
+  font-size: 1.1rem;
+  text-align: center;
+  color: #666;
+  border-radius: 0.5rem;
+  background-color: var(--light-bg);
+  padding: 0.2rem 0.4rem;
+  border: 1px solid #545bba;
+}
+.add-products textarea {
+  height: 8rem;
+  resize: none;
+}
+.add-products .btn {
+  width: 100%;
+  margin: 1rem 0;
+  font-size: 1.1rem;
+  text-align: center;
+  color: #666;
+  border-radius: 0.5rem;
+  background-color: var(--light-bg);
+  padding: 0.2rem 0.4rem;
+  border: 1px solid #545bba;
+}
+.btn:hover {
+  background: #545bba;
+  border: 2px solid;
+  color: grey;
+}
+.show-products .box-container {
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+}
+.show-products .box-container .box {
+  background: #fff;
+}
+.update,
+.delete {
+  margin: 0.5rem;
+  text-transform: capitalize;
+  color: #fff;
+  background: #e95a87;
+  padding: 0.5rem 2rem;
+  border-radius: 5px;
+}
+.update:hover,
+.delete:hover {
+}
+.update-product {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+  background: #c7b3f5;
+  z-index: 1100;
+  padding: 2rem;
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
+
+.update-product form {
+  box-shadow: var(--box-shadow);
+  width: 50%;
+  background: #545bba;
+  padding: 1rem;
+  margin: 2rem auto;
+  text-align: center;
+}
+.update-product .update,
+.update-product .btn {
+  width: 40%;
+  cursor: pointer;
+}
+.update-product img {
+  width: 60%;
 }

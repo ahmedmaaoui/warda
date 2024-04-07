@@ -1,0 +1,145 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600&display=swap");
+
+:root {
+  --pink: #e84393;
+  --red: #c0392b;
+  --orange: #f39c12;
+  --black: #333;
+  --white: #fff;
+  --light-color: #666;
+  --light-white: #ccc;
+  --light-bg: #f5f5f5;
+  --border: 0.2rem solid var(--black);
+  --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+* {
+  font-family: "Rubik", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  transition: all 0.2s linear;
+}
+.form-container {
+  background-image: url(pngtree-bouquet-rose-roses-flower-background-picture-image_510318.jpg);
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-container form {
+  width: 50dvw;
+  height: auto;
+  margin: 0 auto;
+  padding: 2rem;
+  background: #ffeaf4;
+  border: 1px solid pink;
+  backdrop-filter: invert(5%);
+}
+form,
+input {
+  width: 100%;
+  background: ghostwhite;
+  padding: 1rem 4rem;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  margin: 0.5rem 0;
+  padding-left: 0.5rem;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+  font-size: 14px;
+}
+
+.form-container .btn {
+  cursor: pointer;
+  background: aliceblue;
+  color: #ac8296;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+.btn:hover {
+  background: rgb(143, 116, 141);
+  border: 2px solid;
+  color: grey;
+}
+.form-container h3 {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 5000;
+  font-size: x-large;
+  color: #ac8296;
+  margin: 1rem;
+}
+.form-container ::placeholder {
+  text-align: center;
+  font-size: larger;
+}
+
+.form-container form p {
+  margin-top: 1em;
+  font-size: 1.4rem;
+  color: var(--light-color);
+}
+
+.form-container form p a {
+  color: var(--pink);
+}
+
+.form-container form p a:hover {
+  text-decoration: underline;
+}
+.show-products .box-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 30rem);
+  gap: 1.5rem;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.show-products .box-container .box {
+  text-align: center;
+  padding: 2rem;
+  border: var(--border);
+  background-color: var(--white);
+  box-shadow: var(--box-shadow);
+  border-radius: 0.5rem;
+  position: relative;
+}
+
+.show-products .box-container .box .image {
+  height: 30rem;
+  margin-bottom: 0.5rem;
+}
+
+.show-products .box-container .box .price {
+  background-color: var(--pink);
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  border-radius: 0.5rem;
+  color: var(--white);
+  padding: 1rem;
+  font-size: 2rem;
+}
+
+.show-products .box-container .box .name {
+  margin: 1rem 0;
+  font-size: 2rem;
+  color: var(--black);
+}
+
+.show-products .box-container .box .details {
+  line-height: 1.5;
+  color: var(--light-color);
+  font-size: 1.5rem;
+  padding: 0.5rem 0;
+}

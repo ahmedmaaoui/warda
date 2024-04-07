@@ -58,7 +58,7 @@ if (isset($_POST["login"])) {
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="">
+   <link rel="stylesheet" href="style.css">
 
 </head>
 <body>
@@ -82,10 +82,6 @@ if(isset($message)){
       <h3>login now</h3>
       <input type="email" name="email" class="box" placeholder="enter your email" required>
       <input type="password" name="password" class="box" placeholder="enter your password" required>
-          <select class="box" name="user_type">
-         <option value="user">user</option>
-         <option value="admin">admin</option>
-      </select>
       <input type="submit" class="btn" name="login" value="login now">
       <p>don't have an account? <a href="register.php">register now</a></p>
    </form>

@@ -2,7 +2,7 @@
  
     <div class="flex-user">
 
-        <a href="user_home.php" ><img class="logo-warda" src="../../img/Wardalogo.svg" alt=""></a>
+        <a href="user_home.php" ><img class="logo-warda" src="../img/Wardalogo.svg" alt=""></a>
 
         <nav class="navbar-user">
             <ul>

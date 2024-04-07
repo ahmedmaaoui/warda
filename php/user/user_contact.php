@@ -11,18 +11,18 @@ if(!isset($user_id)){
 
 if(isset($_POST['send'])){
 
-    $name = $_POST['name'];
+    $username = $_POST['username'];
     $email = $_POST['email'];
     $number = $_POST['number'];
     $msg =  $_POST['message'];
-      require_once "config.php";
+      require_once "../auth/config.php";
     
-         $select_message = mysqli_query($conn, "SELECT * FROM `client_message` WHERE name = '$name' AND email = '$email' AND number = '$number' AND message = '$msg'") or die('query failed');
+         $select_message = mysqli_query($conn, "SELECT * FROM `client_message` WHERE username = '$username' AND email = '$email' AND number = '$number' AND message = '$msg'") or die('query failed');
 
     if(mysqli_num_rows($select_message) > 0){
         $message[] = 'message sent already!';
     }else{
-        mysqli_query($conn, "INSERT INTO `client_message`(user_id, name, email, number, message) VALUES('$user_id', '$name', '$email', '$number', '$msg')") or die('query failed');
+        mysqli_query($conn, "INSERT INTO `client_message`(user_id, username, email, number, message) VALUES('$user_id', '$username', '$email', '$number', '$msg')") or die('query failed');
         $message[] = 'message sent successfully!';
     }
 
@@ -46,7 +46,7 @@ if(isset($_POST['send'])){
 <body>
     <?php @include 'user_header.php'; ?>
 
-<section class="heading">
+<section class="boxing">
     <h3>contact us</h3>
     <p> <a href="user_home.php">home</a> / contact </p>
 </section>
@@ -56,7 +56,7 @@ if(isset($_POST['send'])){
     <form action="" method="POST">
         <h3>send us message!</h3>
         <div>
-        <input type="text" name="name" placeholder="enter your name" class="box" required> 
+        <input type="text" name="username" placeholder="enter your name" class="box" required> 
 </div>
 <div>
         <input type="email" name="email" placeholder="enter your email" class="box" required>
@@ -65,7 +65,7 @@ if(isset($_POST['send'])){
         <input type="number" name="number" placeholder="enter your number" class="box" required>
 </div>
 <div>
-        <textarea name="message" class="box" placeholder="enter your message" required cols="30" rows="10"></textarea>
+        <textarea name="message" class="box" placeholder="enter your message" required ></textarea>
 </div>
 <div>
         <input type="submit" value="send message" name="send" class="btn">

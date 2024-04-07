@@ -17,7 +17,7 @@ if(isset($_POST['add_product'])){
    $image = $_FILES['image']['name'];
    $image_size = $_FILES['image']['size'];
    $image_tmp_name = $_FILES['image']['tmp_name'];
-   $image_folter = 'img/'.$image;
+   $image_folter = 'uploads/'.$image;
 
    $select_product_name = mysqli_query($conn, "SELECT flower_name FROM `flowers` WHERE flower_name = '$name'") or die('query failed');
 
@@ -42,11 +42,16 @@ if(isset($_POST['add_product'])){
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+       <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+  <link rel="stylesheet" href="admin_style.css">
     <link rel="stylesheet" href="admin_style.css">
-    <style>
+    <!-- <style>
         .box-product{
 
             border-style:solid;
@@ -64,7 +69,7 @@ if(isset($_POST['add_product'])){
   row-gap:1.5rem;
  
         }
-    </style>
+    </style> -->
   
 </head>
 <body>
@@ -84,5 +89,8 @@ if(isset($_POST['add_product'])){
    </form>
 
 </section>
+<?php @include 'show_product.php'; ?>
+
+<script src="admin_script.js"></script>
 </body>
 </html>

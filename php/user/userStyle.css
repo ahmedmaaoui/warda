@@ -118,7 +118,7 @@
 /* ------------home----------------- */
 .header_user_box {
   min-height: 80vh;
-  background: url(../../img//headerUser.png) no-repeat;
+  background: url(../img/headerUser.png) no-repeat;
   background-size: cover;
   background-position: center;
   display: flex;
@@ -161,7 +161,7 @@
 /* ---------footer---------- */
 
 .footer-user {
-  background: url(../../img/footer.png) no-repeat;
+  background: url(../img/footer.png) no-repeat;
   background-size: cover;
   min-height: 70vh;
   background-position: center;
@@ -228,4 +228,64 @@
   min-height: 20vh;
   /* border-style: solid;
   border-color: #2bc089; */
+}
+
+.boxing {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.boxing form {
+  width: 50dvw;
+  height: auto;
+  margin: 0 auto;
+  padding: 2rem;
+  background: #ffeaf4;
+  border: 1px solid pink;
+  backdrop-filter: invert(5%);
+}
+form,
+input {
+  width: 100%;
+  background: ghostwhite;
+  padding: 1rem 4rem;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  margin: 0.5rem 0;
+  padding-left: 0.5rem;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+  font-size: 14px;
+}
+textarea {
+  width: 80%;
+  height: 30%;
+}
+
+.boxing .btn {
+  cursor: pointer;
+  background: aliceblue;
+  color: #ac8296;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+.btn:hover {
+  background: rgb(143, 116, 141);
+  border: 2px solid;
+  color: grey;
+}
+.boxing h3 {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 5000;
+  font-size: x-large;
+  color: #ac8296;
+  margin: 1rem;
+}
+.boxing ::placeholder {
+  text-align: center;
+  font-size: larger;
 }
